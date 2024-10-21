@@ -1,4 +1,4 @@
-# Farminist
+# Farminista
 
 ## Overview
 
