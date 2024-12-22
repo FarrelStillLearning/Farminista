@@ -4,25 +4,27 @@ import java.time.LocalDate;
 
 public class Penjualan {
     private int idPenjualan;
-    private int produkId;
+    private int idProduk;
+    private int idPetani;
     private int jumlah;
     private double totalHarga;
-    private LocalDate tanggal;
-
+   
     // Constructor
-    public Penjualan(int idPenjualan, int produkId, int jumlah, double totalHarga, LocalDate tanggal) {
+    public Penjualan(int idPenjualan, int produkId, int jumlah, double totalHarga) {
         this.idPenjualan = idPenjualan;
-        this.produkId = produkId;
+        this.idProduk = produkId;
         this.jumlah = jumlah;
         this.totalHarga = totalHarga;
-        this.tanggal = tanggal;
     }
 
-    public Penjualan(int produkId, int jumlah, double totalHarga, LocalDate tanggal) {
-        this.produkId = produkId;
+    public Penjualan(int produkId, int jumlah, double totalHarga) {
+        this.idProduk = produkId;
         this.jumlah = jumlah;
         this.totalHarga = totalHarga;
-        this.tanggal = tanggal;
+    }
+
+    public Penjualan(int i, int idProduk, int idPetani, int jumlahProduk, double totalHarga) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     // Getters and Setters
@@ -35,11 +37,11 @@ public class Penjualan {
     }
 
     public int getProdukId() {
-        return produkId;
+        return idProduk;
     }
 
     public void setProdukId(int produkId) {
-        this.produkId = produkId;
+        this.idProduk = produkId;
     }
 
     public int getJumlah() {
@@ -58,22 +60,18 @@ public class Penjualan {
         this.totalHarga = totalHarga;
     }
 
-    public LocalDate getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(LocalDate tanggal) {
-        this.tanggal = tanggal;
-    }
 
     @Override
     public String toString() {
         return "Penjualan{" +
                 "idPenjualan=" + idPenjualan +
-                ", produkId=" + produkId +
+                ", produkId=" + idProduk +
                 ", jumlah=" + jumlah +
                 ", totalHarga=" + totalHarga +
-                ", tanggal=" + tanggal +
                 '}';
+    }
+
+    public int getIdPetani() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

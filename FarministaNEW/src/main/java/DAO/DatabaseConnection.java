@@ -12,6 +12,10 @@ public class DatabaseConnection {
 
     // Singleton Connection instance
     private static Connection connection = null;
+
+    public static Connection connect() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     // Private constructor to prevent instantiation
     private DatabaseConnection() {}

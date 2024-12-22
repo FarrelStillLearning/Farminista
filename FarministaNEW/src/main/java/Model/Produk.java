@@ -1,65 +1,67 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Produk {
     private int idProduk;
-    private String namaProduk;
-    private int stok;
-    private double harga;
+    private String bibit;
+    private int idPetani;
+    private int idBibit;
+    private int jumlahPanen;
 
     // Constructor
-    public Produk(int idProduk, String namaProduk, int stok, double harga) {
-        this.idProduk = idProduk;
-        this.namaProduk = namaProduk;
-        this.stok = stok;
-        this.harga = harga;
-    }
-
-    public Produk(String namaProduk, int stok, double harga) {
-        this.namaProduk = namaProduk;
-        this.stok = stok;
-        this.harga = harga;
-    }
-
-    // Getters and Setters
-    public int getIdProduk() {
-        return idProduk;
-    }
+    
+    public Produk(int idProduk, int idPetani, int idBibit, String bibit) {
+            this.idProduk = idProduk;
+            this.idPetani = idPetani;
+            this.idBibit = idBibit;
+            this.bibit = bibit;
+        }
+   
 
     public void setIdProduk(int idProduk) {
         this.idProduk = idProduk;
     }
 
-    public String getNamaProduk() {
-        return namaProduk;
+    public int getIdProduk() {
+        return idProduk;
+    }
+    
+    public void setIdPetani(int idPetani) {
+        this.idPetani = idPetani;
     }
 
-    public void setNamaProduk(String namaProduk) {
-        this.namaProduk = namaProduk;
+    public int getIdPetani() {
+        return idPetani;
+    }
+    
+    public void setBibit(String bibit) {
+        this.bibit = bibit;
+    }
+
+    public String getBibit() {
+        return bibit;
+    }
+    
+    public void setIdBibit(int idBibit) {
+        this.idBibit = idBibit;
+    }
+
+    public int getIdBibit() {
+        return idBibit;
     }
 
     public int getStok() {
-        return stok;
+        return jumlahPanen;
     }
 
     public void setStok(int stok) {
-        this.stok = stok;
+        this.jumlahPanen = jumlahPanen;
     }
-
-    public double getHarga() {
-        return harga;
-    }
-
-    public void setHarga(double harga) {
-        this.harga = harga;
-    }
-
+    
     @Override
     public String toString() {
-        return "Produk{" +
-                "idProduk=" + idProduk +
-                ", namaProduk='" + namaProduk + '\'' +
-                ", stok=" + stok +
-                ", harga=" + harga +
-                '}';
+        return bibit; // This will be displayed in the ComboBox
     }
+    
 }

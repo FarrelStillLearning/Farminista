@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import dao.Admin_dashboardDAO;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -24,6 +26,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.BibitData;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -49,35 +54,41 @@ public class Admin_dashboardController implements Initializable {
     @FXML
     private AnchorPane lihatdata;
     @FXML
-    private TableView<?> tabellihatdata;
+    private TableView<BibitData> editdatadbibittabel;
     @FXML
-    private TableView<?> editdatadbibittabel;
+    private TableColumn<BibitData, String> bibit;
     @FXML
-    private TableColumn<?, ?> bibit;
+    private TableColumn<BibitData, String> supplier;
     @FXML
-    private TableColumn<?, ?> supplier;
-    @FXML
-    private TableColumn<?, ?> harga;
+    private TableColumn<BibitData, Double> harga;
     @FXML
     private Button editdatabibit;
     @FXML
-    private TableView<?> editrekapdatatabel;
+    private AreaChart<?, ?> grafiktotalbibit;
+    @FXML   
+    private TableView<?> editrekapdatatabel1;
     @FXML
-    private TableColumn<?, ?> jumlahbibit;
+    private TableColumn<?, ?> bibit1;
     @FXML
-    private TableColumn<?, ?> tanggaltanam;
+    private TableColumn<?, ?> jumlahbibit1;
     @FXML
-    private TableColumn<?, ?> tanggalpanen;
+    private TableColumn<?, ?> supplier1;
     @FXML
-    private TableColumn<?, ?> jumlahpanen;
+    private TableColumn<?, ?> tanggaltanam1;
     @FXML
-    private TableColumn<?, ?> hargajual;
+    private TableColumn<?, ?> tanggalpanen1;
     @FXML
-    private TableColumn<?, ?> jumlahterjual;
+    private TableColumn<?, ?> jumlahpanen1;
     @FXML
-    private TableColumn<?, ?> penjualan;
+    private TableColumn<?, ?> hargajual1;
     @FXML
-    private Button editrekapanbibit;
+    private TableColumn<?, ?> jumlahterjual1;
+    @FXML
+    private TableColumn<?, ?> penjualan1;
+    @FXML
+    private Button editrekapanbibit1;
+    
+    Admin_dashboardDAO dao = new Admin_dashboardDAO();
 
     /**
      * Initializes the controller class.
@@ -89,6 +100,17 @@ public class Admin_dashboardController implements Initializable {
     // Menampilkan homeform pertama kali dan menyembunyikan form lainnya
     showHome();
 }
+    public void loadBibitDataToTable() {
+        // Set up columns
+        bibit.setCellValueFactory(new PropertyValueFactory<>("bibit"));
+        supplier.setCellValueFactory(new PropertyValueFactory<>("supplier"));
+        harga.setCellValueFactory(new PropertyValueFactory<>("harga"));
+
+        // Load data
+        ObservableList<BibitData> data = dao.getAllBibitData();
+        editdatadbibittabel.setItems(data);
+    }
+    
     private String username;
 
     public void setUsername(String username) {
@@ -154,6 +176,5 @@ private void showLihatData() {
             } catch (IOException e) {
             }
         }
-    }
-    
+    } 
 }

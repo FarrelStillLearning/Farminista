@@ -1,5 +1,12 @@
 package Model;
+
+import javafx.scene.control.cell.PropertyValueFactory;
+
 public class Bibit {
+
+    public static void setCellValueFactory(PropertyValueFactory<Object, Object> propertyValueFactory) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private int idBibit;
     private String nama;
 
