@@ -7,12 +7,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : ASUS
 */
 .left-form{
-    -fx-background-color:linear-gradient(to bottom right,  #fff599, #00c04b);
+    -fx-background-color:linear-gradient(to bottom right,  #adff2f, #32cd32); /* green-yellow gradient */
     -fx-border-color:#000;
     -fx-border-width: .4px 0px .4px .4px;
 }
 .right-form{
-    -fx-background-color:#fff;
+    -fx-background-color:linear-gradient(to bottom right,  #adff2f, #32cd32); /* green-yellow gradient */
     -fx-border-color:#000;
     -fx-border-width:.4px .4px .4px 0px;
 }

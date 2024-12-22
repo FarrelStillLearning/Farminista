@@ -1,4 +1,5 @@
 D:\UAS PBO\FarministaNEW\src\main\java\DAO\UserDAO.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\TransaksiTanamPanen.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\Penjualan.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\User.java
 D:\UAS PBO\FarministaNEW\src\main\java\Controller\DashboardController.java
@@ -9,5 +10,8 @@ D:\UAS PBO\FarministaNEW\src\main\java\Model\Produk.java
 D:\UAS PBO\FarministaNEW\src\main\java\DAO\DashboardDAO.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\Bibit.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\Supplier.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\BibitData.java
+D:\UAS PBO\FarministaNEW\src\main\java\DAO\Admin_dashboardDAO.java
 D:\UAS PBO\FarministaNEW\src\main\java\Controller\Admin_dashboardController.java
 D:\UAS PBO\FarministaNEW\src\main\java\DAO\DatabaseConnection.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\StatusTanam.java

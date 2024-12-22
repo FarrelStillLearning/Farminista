@@ -1,7 +1,6 @@
-ini css nya /*
+/*
  * Empty Stylesheet file.
  */
-
 
 .top-form{
     -fx-background-color:#fff;
@@ -59,7 +58,7 @@ ini css nya /*
 }
 
 .white-bg{
-    -fx-background-color:#fff;
+    -fx-background-color: linear-gradient(to right, #5cad49, #ffeabd);
     -fx-background-radius:8px;
 }
 
