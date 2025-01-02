@@ -53,10 +53,13 @@ CREATE TABLE `penjualan` (
   `id_produk` int DEFAULT NULL,
   `jumlah` int DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
+  `id_petani` int DEFAULT NULL,
   PRIMARY KEY (`id_penjualan`),
   KEY `id_produk` (`id_produk`),
+  KEY `fk_penjualan_petani` (`id_petani`),
+  CONSTRAINT `fk_penjualan_petani` FOREIGN KEY (`id_petani`) REFERENCES `petani` (`id_petani`),
   CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +68,7 @@ CREATE TABLE `penjualan` (
 
 LOCK TABLES `penjualan` WRITE;
 /*!40000 ALTER TABLE `penjualan` DISABLE KEYS */;
+INSERT INTO `penjualan` VALUES (13,13,3,150000.00,21),(15,13,1,50000.00,21),(19,14,5,100000.00,21),(20,14,9,180000.00,21),(21,14,9,180000.00,21),(23,1,10,220000.00,21);
 /*!40000 ALTER TABLE `penjualan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,12 +109,15 @@ DROP TABLE IF EXISTS `produk`;
 CREATE TABLE `produk` (
   `id_produk` int NOT NULL AUTO_INCREMENT,
   `id_bibit` int DEFAULT NULL,
+  `id_petani` int DEFAULT NULL,
   `stok` int DEFAULT NULL,
   `harga_produk` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id_produk`),
   KEY `id_bibit` (`id_bibit`),
+  KEY `id_petani` (`id_petani`),
+  CONSTRAINT `id_petani` FOREIGN KEY (`id_petani`) REFERENCES `petani` (`id_petani`),
   CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_bibit`) REFERENCES `bibit` (`id_bibit`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +126,7 @@ CREATE TABLE `produk` (
 
 LOCK TABLES `produk` WRITE;
 /*!40000 ALTER TABLE `produk` DISABLE KEYS */;
-INSERT INTO `produk` VALUES (1,1,12,24000.00),(2,1,30,24000.00),(3,1,18,24000.00);
+INSERT INTO `produk` VALUES (1,1,21,74,22000.00),(13,4,21,21,50000.00),(14,3,21,49,20000.00),(23,2,21,20,32000.00);
 /*!40000 ALTER TABLE `produk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +141,7 @@ CREATE TABLE `supplier` (
   `id_supplier` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_supplier`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +150,7 @@ CREATE TABLE `supplier` (
 
 LOCK TABLES `supplier` WRITE;
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` VALUES (1,'PT.Farrel'),(2,'opik'),(3,'Sinar Labib Jaya'),(4,'MediaFarma');
+INSERT INTO `supplier` VALUES (1,'PT.Farrel'),(2,'opik'),(3,'Sinar Labib Jaya');
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,12 +167,11 @@ CREATE TABLE `supply_bibit` (
   `id_supplier` int DEFAULT NULL,
   `harga` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id_supply_bibit`),
-  UNIQUE KEY `unique_bibit_supplier` (`id_bibit`,`id_supplier`),
   KEY `id_bibit` (`id_bibit`),
   KEY `id_supplier` (`id_supplier`),
   CONSTRAINT `supply_bibit_ibfk_1` FOREIGN KEY (`id_bibit`) REFERENCES `bibit` (`id_bibit`),
   CONSTRAINT `supply_bibit_ibfk_2` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +180,7 @@ CREATE TABLE `supply_bibit` (
 
 LOCK TABLES `supply_bibit` WRITE;
 /*!40000 ALTER TABLE `supply_bibit` DISABLE KEYS */;
-INSERT INTO `supply_bibit` VALUES (1,1,1,12000.00),(2,3,2,14000.00),(3,4,3,50000.00),(4,2,4,24000.00),(5,2,1,12000.00);
+INSERT INTO `supply_bibit` VALUES (1,1,1,12000.00),(3,4,3,50000.00),(4,2,1,24000.00);
 /*!40000 ALTER TABLE `supply_bibit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +195,7 @@ CREATE TABLE `transaksi_beli_bibit` (
   `id_transaksi` int NOT NULL AUTO_INCREMENT,
   `id_supply_bibit` int DEFAULT NULL,
   `id_petani` int DEFAULT NULL,
-  `jumlah` int DEFAULT NULL,
+  `jumlah` int DEFAULT '0',
   `total_harga` decimal(10,2) DEFAULT NULL,
   `status_tanam` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `tanggal_supply` date DEFAULT NULL,
@@ -198,7 +204,7 @@ CREATE TABLE `transaksi_beli_bibit` (
   KEY `id_petani` (`id_petani`),
   CONSTRAINT `transaksi_beli_bibit_ibfk_1` FOREIGN KEY (`id_supply_bibit`) REFERENCES `supply_bibit` (`id_supply_bibit`),
   CONSTRAINT `transaksi_beli_bibit_ibfk_2` FOREIGN KEY (`id_petani`) REFERENCES `petani` (`id_petani`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +213,7 @@ CREATE TABLE `transaksi_beli_bibit` (
 
 LOCK TABLES `transaksi_beli_bibit` WRITE;
 /*!40000 ALTER TABLE `transaksi_beli_bibit` DISABLE KEYS */;
-INSERT INTO `transaksi_beli_bibit` VALUES (2,1,1,5,60000.00,'selesai','2024-10-19'),(4,3,1,3,150000.00,'Pending','2024-10-20'),(5,1,1,4,96000.00,'Pending','2024-10-20'),(6,1,1,20,480000.00,'Pending','2024-10-20'),(7,1,1,2,48000.00,'Pending','2024-10-20'),(9,3,21,6,0.00,'Pending','2024-12-11'),(10,1,21,9,0.00,'Pending','2024-12-13'),(15,2,21,23,276.00,'Pending','2024-12-14'),(18,2,21,27,324.00,'Pending','2024-12-14'),(38,4,21,3,72000.00,'Pending','2024-12-14'),(42,1,21,2,24000.00,'Pending','2024-12-14'),(43,1,21,3,36000.00,'Pending','2024-12-14');
+INSERT INTO `transaksi_beli_bibit` VALUES (2,1,1,5,60000.00,'Pending','2025-01-01'),(4,3,21,3,150000.00,'Pending','2024-12-14'),(5,1,1,4,96000.00,'Pending','2025-01-01'),(6,1,1,20,480000.00,'Pending','2025-01-01'),(30,1,21,5,60000.00,'Pending','2025-01-01'),(31,1,21,4,96000.00,'Pending','2025-01-01');
 /*!40000 ALTER TABLE `transaksi_beli_bibit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,11 +229,10 @@ CREATE TABLE `transaksi_tanam_panen` (
   `id_transaksi` int DEFAULT NULL,
   `waktu_tanam` date DEFAULT NULL,
   `waktu_panen` date DEFAULT NULL,
-  `jumlah_panen` int DEFAULT NULL,
   PRIMARY KEY (`id_tanam_panen`),
   KEY `id_transaksi` (`id_transaksi`),
   CONSTRAINT `transaksi_tanam_panen_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi_beli_bibit` (`id_transaksi`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,6 +241,7 @@ CREATE TABLE `transaksi_tanam_panen` (
 
 LOCK TABLES `transaksi_tanam_panen` WRITE;
 /*!40000 ALTER TABLE `transaksi_tanam_panen` DISABLE KEYS */;
+INSERT INTO `transaksi_tanam_panen` VALUES (1,1,'2024-01-01','2024-03-01'),(2,2,'2024-02-01','2024-04-01'),(3,3,'2024-03-01','2024-05-01');
 /*!40000 ALTER TABLE `transaksi_tanam_panen` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -248,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-14 17:33:37
+-- Dump completed on 2025-01-02 22:18:37
