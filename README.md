@@ -69,5 +69,5 @@ The system uses a database to store information for users, transactions, product
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/FarrelStillLearning/farminista.git
-   cd farminista
+   git clone https://github.com/FarrelStillLearning/Farminista.git
+   cd Farminista
