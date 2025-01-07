@@ -18,6 +18,10 @@ public class Produk {
             this.bibit = bibit;
         }
    
+    public Produk(int idProduk, String bibit) {
+        this.idProduk = idProduk;
+        this.bibit = bibit;
+    }
 
     public void setIdProduk(int idProduk) {
         this.idProduk = idProduk;

@@ -1,8 +1,11 @@
 Controller\Admin_dashboardController.class
+Model\Editbibit.class
 Model\StatusTanam.class
+Model\Edituser.class
 Controller\loginpageController.class
 Controller\DashboardController.class
 Model\BibitData.class
+Model\TanamPanen.class
 Main\Farminista.class
 Model\User.class
 DAO\DatabaseConnection.class

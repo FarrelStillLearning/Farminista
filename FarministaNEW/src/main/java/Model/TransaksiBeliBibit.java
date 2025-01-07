@@ -28,15 +28,15 @@ public class TransaksiBeliBibit {
 
     // Constructor untuk data lainnya jika diperlukan
     public TransaksiBeliBibit(int idTransaksi, int idSupplyBibit, int idPetani, int jumlah, double totalHarga, String statusTanam, String tanggalSupply) {
-        this.idTransaksi = idTransaksi;
         this.idSupplyBibit = idSupplyBibit;
         this.idPetani = idPetani;
         this.jumlah = jumlah;
         this.totalHarga = totalHarga;
         this.statusTanam = statusTanam;
         this.tanggalSupply = tanggalSupply;
+        this.idTransaksi = idTransaksi;
     }
-
+    
     // Getter dan Setter untuk semua properti
     public int getNo() {
         return no;

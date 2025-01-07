@@ -1,9 +1,12 @@
 D:\UAS PBO\FarministaNEW\src\main\java\DAO\UserDAO.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\Edituser.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\TransaksiTanamPanen.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\Editbibit.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\Penjualan.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\User.java
 D:\UAS PBO\FarministaNEW\src\main\java\Controller\DashboardController.java
 D:\UAS PBO\FarministaNEW\src\main\java\Controller\loginpageController.java
+D:\UAS PBO\FarministaNEW\src\main\java\Model\TanamPanen.java
 D:\UAS PBO\FarministaNEW\src\main\java\Main\Farminista.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\TransaksiBeliBibit.java
 D:\UAS PBO\FarministaNEW\src\main\java\Model\Produk.java

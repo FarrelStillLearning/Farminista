@@ -17,11 +17,11 @@ public class Supplier {
         this.nama = nama;
         this.harga = harga;
     }
-    public Supplier(int id_supplier, String nama, double harga, int id_supply_bibit) {
+    public Supplier(int id_supply_bibit, int id_supplier, String nama, double harga) {
+        this.id_supply_bibit = id_supply_bibit;
         this.id_supplier = id_supplier;
         this.nama = nama;
         this.harga = harga;
-        this.id_supply_bibit = id_supply_bibit;
     }
     // Getters and setters
     public int getIdSupplier() {
