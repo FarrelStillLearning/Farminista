@@ -31,7 +31,6 @@ public class loginpageController implements Initializable {
     private PasswordField passwordlogin;
     @FXML
     private Button loginbtn;
-    @FXML
     private Button close;
     @FXML
     private Button registerbtn;
@@ -180,7 +179,6 @@ public void loginAdmin(ActionEvent event) {
         }
     }
 
-    @FXML
     public void closeApp(ActionEvent event) {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();

@@ -14,7 +14,7 @@
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutY="14.0" prefHeight="400.0" prefWidth="300.0">
+            <AnchorPane layoutY="4.0" prefHeight="400.0" prefWidth="300.0" styleClass="cream" stylesheets="@admin_dashboard.css">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,9 +23,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="loginform" layoutX="300.0" prefHeight="408.0" prefWidth="300.0" styleClass="left-form" stylesheets="@LoginPage.css" visible="false">
+            <AnchorPane fx:id="loginform" layoutX="300.0" prefHeight="408.0" prefWidth="300.0" styleClass="hijau" stylesheets="@admin_dashboard.css" visible="false">
                <children>
-                  <Label layoutX="85.0" layoutY="68.0" text="Welcome Back!">
+                  <Label layoutX="85.0" layoutY="68.0" text="Welcome Back!" textFill="#ffeabd">
                      <font>
                         <Font name="Tahoma Bold" size="17.0" />
                      </font>
@@ -33,12 +33,12 @@
                   <TextField fx:id="usernamelogin" layoutX="40.0" layoutY="126.0" onAction="#loginAdmin" prefHeight="30.0" prefWidth="220.0" promptText="Username" />
                   <PasswordField fx:id="passwordlogin" layoutX="40.0" layoutY="185.0" onAction="#loginAdmin" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
                   <Button fx:id="login" layoutX="40.0" layoutY="234.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="40.0" prefWidth="220.0" text="Login" />
-                  <Button fx:id="registerbtn" layoutX="120.0" layoutY="289.0" mnemonicParsing="false" onAction="#switchToRegisterForm" style="-fx-background-color: transparent;" text="Register" textFill="#000dff" />
+                  <Button fx:id="registerbtn" layoutX="120.0" layoutY="289.0" mnemonicParsing="false" onAction="#switchToRegisterForm" style="-fx-background-color: transparent;" text="Register" textFill="#ffeabd" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="registerform" layoutX="300.0" prefHeight="408.0" prefWidth="300.0" styleClass="left-form" stylesheets="@LoginPage.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="registerform" layoutX="300.0" layoutY="2.0" prefHeight="408.0" prefWidth="300.0" styleClass="hijau" stylesheets="@admin_dashboard.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
                <children>
-                  <Label layoutX="85.0" layoutY="59.0" prefHeight="30.0" prefWidth="131.0" text="Welcome Back!" textAlignment="CENTER">
+                  <Label layoutX="85.0" layoutY="59.0" prefHeight="30.0" prefWidth="131.0" text="Welcome Back!" textAlignment="CENTER" textFill="#ffeabd">
                      <font>
                         <Font name="Tahoma Bold" size="17.0" />
                      </font>
@@ -47,14 +47,12 @@
                   <PasswordField fx:id="passwordrgs" layoutX="40.0" layoutY="170.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
                   <PasswordField fx:id="confirmpassword" layoutX="40.0" layoutY="217.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" />
                   <Button fx:id="register" layoutX="40.0" layoutY="263.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="40.0" prefWidth="220.0" text="Register" />
-                  <Button fx:id="loginbtn" layoutX="128.0" layoutY="321.0" mnemonicParsing="false" onAction="#switchToLoginForm" style="-fx-background-color: transparent;" text="Login" textFill="#000dff" />
+                  <Button fx:id="loginbtn" layoutX="128.0" layoutY="321.0" mnemonicParsing="false" onAction="#switchToLoginForm" style="-fx-background-color: transparent;" text="Login" textFill="#ffeabd">
+                     <font>
+                        <Font name="Tahoma Bold" size="12.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
-            <Button fx:id="close" mnemonicParsing="false" onAction="#closeApp" text="x" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-               <font>
-                  <Font name="Tahoma" size="12.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </children>
